@@ -1,0 +1,18 @@
+{
+  "status": "init",
+  "scope": "codebase",
+  "type": "frontend",
+  "localEndpoint": "http://localhost:8501/",
+  "serverPort": 49671,
+  "executionArgs": {
+    "projectName": "files (4)",
+    "projectPath": "e:\\Downloads\\files (4)",
+    "testIds": [],
+    "additionalInstruction": "Ensure all tests verify the 'Neon Quant' design elements (glassmorphism tabs, dark background) and the forecasting models (ARIMA, Prophet, LSTM) without crashing.",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-4qTGb0CFO3T5kyGSktRRct4EaEU6Hu4VrF0kY5sXJhFYfi1wuVNtodbODlneRi0Dr5UTeBnOecgNCWFKBoUGBRmKv-7Df7sIsPogwBcl3NQXtAN8GOm9Ay5GormI8wqw_5M"
+    }
+  },
+  "proxy": "http://d748bcc8-6c1d-4477-912c-04f1ef9ce2b6:mgA92ltqs30v7zmQUDvjjcemuQQjbxrn@tun.testsprite.com:8080"
+}

@@ -1,0 +1,66 @@
+version: "2"
+type: frontend
+tech_stack:
+  - Python
+  - Streamlit
+  - Plotly
+  - Pandas
+  - yfinance
+  - statsmodels
+  - prophet
+  - tensorflow (Keras)
+routes:
+  - path: /
+    file: app.py
+    auth_required: false
+    description: Main dashboard for TradeMind AI
+features:
+  - name: Global Neon Quant UI
+    description: Professional dark-themed UI with glassmorphism and Space Grotesk typography.
+    files:
+      - app.py
+    entry_route: /
+    user_interactions:
+      - Toggle sidebar to select markets and assets.
+      - Switch between 12 distinct analytical tabs.
+    api_calls:
+      - method: GET
+        endpoint: yfinance (external)
+    auth_required: false
+  - name: Multi-Model AI Forecasting
+    description: ARIMA, Prophet, and LSTM based price prediction.
+    files:
+      - app.py
+      - models/arima.py
+      - models/prophet_model.py
+      - models/lstm.py
+    entry_route: /?tab=Forecast
+    user_interactions:
+      - Select forecasting model from radio/selectbox.
+      - Click "Run Forecast" or "Compare All Models".
+      - Observe dashed-line forecast on Plotly chart.
+    api_calls: []
+    auth_required: false
+  - name: Backtesting Engine
+    description: Historical strategy simulation and performance metrics.
+    files:
+      - app.py
+      - signals/backtest.py
+    entry_route: /?tab=Backtest
+    user_interactions:
+      - Select strategy (e.g., RSI, Mean Reversion).
+      - Set capital and run simulation.
+      - View Total Return, Win Rate, and Equity Curve.
+    api_calls: []
+    auth_required: false
+  - name: Sentiment Analysis
+    description: Text and news-based market mood detection.
+    files:
+      - app.py
+    entry_route: /?tab=Sentiment
+    user_interactions:
+      - Paste text headlines for direct analysis.
+      - Click "Fetch & Analyze" for real-time news news pulse.
+    api_calls: []
+    auth_required: false
+known_limitations: []

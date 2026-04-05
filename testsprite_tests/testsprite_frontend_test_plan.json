@@ -1,0 +1,784 @@
+[
+  {
+    "id": "TC001",
+    "title": "Load a valid asset and see Overview metrics plus Neon Quant chart",
+    "description": "This test verifies a user can select a valid market/asset, load historical data, and see the Overview metrics and the primary Neon Quant Plotly chart populated for the selected asset.",
+    "category": "Global Neon Quant UI",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify Overview key metrics are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a Neon Quant styled Plotly price chart is displayed for the selected asset"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Switching between multiple tabs does not break the base chart session",
+    "description": "This test verifies that the baseline Plotly chart continues to render and remain usable after switching among several analytical tabs during a single session.",
+    "category": "Global Neon Quant UI",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Switch between several different analytical tabs"
+      },
+      {
+        "type": "action",
+        "description": "Return to the Overview tab"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the Neon Quant Plotly price chart is still displayed and populated"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "View Raw Data table after loading an asset",
+    "description": "This test verifies that after loading a valid asset, the Raw Data tab shows a populated time series table for the same selected asset/time range.",
+    "category": "Global Neon Quant UI",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Raw Data tab"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the raw time series data table is populated"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Run an ARIMA forecast and see dashed overlay plus horizon metrics",
+    "description": "This test verifies that with a loaded asset, running an ARIMA forecast produces a dashed-line forecast overlay on the chart and displays forecast horizon metrics.",
+    "category": "Multi-Model AI Forecasting",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Forecast tab"
+      },
+      {
+        "type": "action",
+        "description": "Select the ARIMA forecasting model"
+      },
+      {
+        "type": "action",
+        "description": "Provide a reasonable historical window and valid ARIMA parameters"
+      },
+      {
+        "type": "action",
+        "description": "Run the forecast"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a dashed-line forecast overlay is displayed on the price chart"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify forecast horizon metrics are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Run RSI backtest and see metrics plus equity curve vs Buy & Hold",
+    "description": "This test verifies that with a loaded asset, running the RSI backtest with valid starting capital populates performance metrics and renders an equity curve compared to Buy & Hold.",
+    "category": "Backtesting Engine",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Backtest tab"
+      },
+      {
+        "type": "action",
+        "description": "Select the RSI strategy"
+      },
+      {
+        "type": "action",
+        "description": "Fill a valid positive starting capital amount into the capital field"
+      },
+      {
+        "type": "action",
+        "description": "Set valid RSI strategy parameters"
+      },
+      {
+        "type": "action",
+        "description": "Run the backtest"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify Total Return and Win Rate values are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an equity curve comparison chart versus Buy & Hold is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Compare all forecast models and see multiple distinct overlays",
+    "description": "This test verifies that the compare-all-models action renders multiple dashed-line forecast overlays for side-by-side comparison and displays corresponding horizon outputs.",
+    "category": "Multi-Model AI Forecasting",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Forecast tab"
+      },
+      {
+        "type": "action",
+        "description": "Choose the compare-all-models action"
+      },
+      {
+        "type": "action",
+        "description": "Run the comparison"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify multiple distinct dashed-line forecast overlays are displayed on the chart"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify forecast comparison outputs are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Selected asset context persists when switching tabs",
+    "description": "This test verifies that after loading an asset, switching across analytical tabs keeps the same asset context without unexpectedly clearing charts or data views.",
+    "category": "Global Neon Quant UI",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Forecast tab"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Backtest tab"
+      },
+      {
+        "type": "action",
+        "description": "Switch back to the Overview tab"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the selected-asset price chart and/or metrics are still displayed without being reset"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Reloading with a different asset updates the primary chart",
+    "description": "This test verifies that after loading one asset, selecting a different asset and reloading updates the chart to the newly selected asset rather than continuing to show the prior one.",
+    "category": "Global Neon Quant UI",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Select a different asset in the same market"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the newly selected asset"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the primary price chart updates to reflect the newly selected asset"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Switch to Mean Reversion strategy and see outputs update",
+    "description": "This test verifies that after running one strategy, switching to Mean Reversion and running again updates the metrics and equity curve to the new strategy results.",
+    "category": "Backtesting Engine",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Backtest tab"
+      },
+      {
+        "type": "action",
+        "description": "Select the RSI strategy"
+      },
+      {
+        "type": "action",
+        "description": "Fill a valid positive starting capital amount into the capital field"
+      },
+      {
+        "type": "action",
+        "description": "Run the backtest"
+      },
+      {
+        "type": "action",
+        "description": "Select the Mean Reversion strategy"
+      },
+      {
+        "type": "action",
+        "description": "Set valid Mean Reversion parameters"
+      },
+      {
+        "type": "action",
+        "description": "Run the backtest"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify backtest metrics are displayed for the latest run"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the equity curve comparison chart is displayed for the latest run"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Analyze pasted headlines to get per-item sentiment and aggregated news pulse",
+    "description": "Verifies a user can paste multiple headlines, run sentiment analysis, and see per-item polarity/subjectivity results plus an aggregated news pulse.",
+    "category": "Sentiment Analysis",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Sentiment tab"
+      },
+      {
+        "type": "action",
+        "description": "Fill the sentiment text area with multiple distinct headline lines"
+      },
+      {
+        "type": "action",
+        "description": "Request sentiment analysis"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify per-item sentiment results are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an aggregated news pulse summary is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC011",
+    "title": "Fetch and analyze recent headlines to render sentiment trend and news pulse",
+    "description": "Verifies a user can fetch recent headlines, run analysis, and see an aggregated sentiment trend visualization and news pulse.",
+    "category": "Sentiment Analysis",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Sentiment tab"
+      },
+      {
+        "type": "action",
+        "description": "Request fetch of recent headlines"
+      },
+      {
+        "type": "action",
+        "description": "Request analysis"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an aggregated sentiment trend visualization is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an aggregated news pulse summary is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC012",
+    "title": "Re-run sentiment analysis after editing pasted headlines updates results",
+    "description": "Verifies that after an initial sentiment run, changing the input text and running again updates the displayed per-item results and aggregated pulse.",
+    "category": "Sentiment Analysis",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Sentiment tab"
+      },
+      {
+        "type": "action",
+        "description": "Fill the sentiment text area with multiple headline lines"
+      },
+      {
+        "type": "action",
+        "description": "Request sentiment analysis"
+      },
+      {
+        "type": "action",
+        "description": "Update the sentiment text area by replacing it with different headline lines"
+      },
+      {
+        "type": "action",
+        "description": "Request sentiment analysis"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify per-item sentiment results are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an aggregated news pulse summary is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC013",
+    "title": "Recover from empty-input validation by providing text and successfully analyzing",
+    "description": "Verifies that after seeing the empty-input validation error, providing valid headlines and re-running produces sentiment results and a news pulse.",
+    "category": "Sentiment Analysis",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Sentiment tab"
+      },
+      {
+        "type": "action",
+        "description": "Clear the sentiment text area"
+      },
+      {
+        "type": "action",
+        "description": "Request sentiment analysis"
+      },
+      {
+        "type": "action",
+        "description": "Fill the sentiment text area with multiple headline lines"
+      },
+      {
+        "type": "action",
+        "description": "Request sentiment analysis"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify per-item sentiment results are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an aggregated news pulse summary is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC014",
+    "title": "Invalid custom ticker shows validation error and avoids stale outputs",
+    "description": "This test verifies that entering an invalid custom ticker and attempting to load data shows a validation error and does not leave previously loaded charts/metrics presented as current.",
+    "category": "Global Neon Quant UI",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Enter a custom ticker value that is clearly invalid"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the custom ticker"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a ticker validation error is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the main chart/metrics are not shown as populated for the invalid ticker"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC015",
+    "title": "Insufficient historical data for a model shows validation error",
+    "description": "This test verifies that selecting a forecasting model with an insufficient historical window and running the forecast shows a validation error rather than producing misleading outputs.",
+    "category": "Multi-Model AI Forecasting",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Forecast tab"
+      },
+      {
+        "type": "action",
+        "description": "Select a forecasting model that requires more data"
+      },
+      {
+        "type": "action",
+        "description": "Set the historical window to a very small value"
+      },
+      {
+        "type": "action",
+        "description": "Run the forecast"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an insufficient-data validation error is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC016",
+    "title": "Negative capital input is rejected with validation error",
+    "description": "This test verifies that entering a negative capital amount for a backtest displays a validation error and prevents running the simulation with invalid capital.",
+    "category": "Backtesting Engine",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Backtest tab"
+      },
+      {
+        "type": "action",
+        "description": "Select a strategy"
+      },
+      {
+        "type": "action",
+        "description": "Fill a negative value into the capital field"
+      },
+      {
+        "type": "action",
+        "description": "Run the backtest"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a capital validation error is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC017",
+    "title": "Show validation when attempting sentiment analysis with empty input",
+    "description": "Verifies that requesting sentiment analysis with an empty text area shows a validation error prompting for input.",
+    "category": "Sentiment Analysis",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Sentiment tab"
+      },
+      {
+        "type": "action",
+        "description": "Clear the sentiment text area"
+      },
+      {
+        "type": "action",
+        "description": "Request sentiment analysis"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a validation error prompting for input is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC018",
+    "title": "Non-numeric capital input is rejected with validation error",
+    "description": "This test verifies that entering a non-numeric value for starting capital displays a validation error and prevents running the backtest.",
+    "category": "Backtesting Engine",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the sidebar open if it is collapsed"
+      },
+      {
+        "type": "action",
+        "description": "Select a market"
+      },
+      {
+        "type": "action",
+        "description": "Select an asset"
+      },
+      {
+        "type": "action",
+        "description": "Load historical data for the selected asset"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Backtest tab"
+      },
+      {
+        "type": "action",
+        "description": "Select a strategy"
+      },
+      {
+        "type": "action",
+        "description": "Fill a non-numeric value into the capital field"
+      },
+      {
+        "type": "action",
+        "description": "Run the backtest"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a capital validation error is displayed"
+      }
+    ],
+    "priority": "Low"
+  }
+]
